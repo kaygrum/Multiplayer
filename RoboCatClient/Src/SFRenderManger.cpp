@@ -1,15 +1,16 @@
 #include <RoboCatClientPCH.h>
 //Kayleigh: changed win lose condition
-//The last child who collects 10 pieces of trash is the loser and has to clean the remainder of mess (theoretically)
+//The first child who collects 10 pieces of trash is the winner and doesnt have to clean the remainder of mess (theoretically)
 //Once a child picks up 10 pieces they are safe.
 
 //win condition
 //player picks up 10 pieces of trash before the rest
 //lose condition
-//the player is the last player
+//the player is not the first player
 //problems 
 //since the player when they originally come in is seen as 1 player it says you lost
 //changed it so that the player has to get to 9 pieces of trash anyways.
+//Tried to get it that only the last player loses but didn't work out.
 std::unique_ptr< SFRenderManager >	SFRenderManager::sInstance;
 
 SFRenderManager::SFRenderManager()
@@ -39,8 +40,8 @@ void SFRenderManager::RenderUI()
 	RTT.setCharacterSize(24);
 	InOut.setCharacterSize(24);
 	
-	RTT.setColor(sf::Color::Red);
-	InOut.setColor(sf::Color::Red);
+	RTT.setColor(sf::Color::Green);
+	InOut.setColor(sf::Color::Green);
 	
 	// RTT
 	float rttMS = NetworkManagerClient::sInstance->GetAvgRoundTripTime().GetValue() * 1000.f;
@@ -48,7 +49,7 @@ void SFRenderManager::RenderUI()
 	RTT.setString(roundTripTime);
 
 	// Bandwidth
-	string bandwidth = StringUtils::Sprintf("In %d  Bps, Out %d Bps",
+	string bandwidth = StringUtils::Sprintf("In %d  Bps, Out %d Bps \n Quick!!! Pick 10 pieces f trash up or youll be left doing it alone!",
 		static_cast< int >(NetworkManagerClient::sInstance->GetBytesReceivedPerSecond().GetValue()),
 		static_cast< int >(NetworkManagerClient::sInstance->GetBytesSentPerSecond().GetValue()));
 
@@ -82,7 +83,7 @@ void SFRenderManager::RenderShadows()
 	r.setOutlineColor(sf::Color::Red);
 	*/
 	
-	auto shadows = ShadowFactory::sInstance->getShadows(player, sf::Color::Black, bounds);
+	auto shadows = ShadowFactory::sInstance->getShadows(player, sf::Color::White, bounds);
 	for (auto s : shadows)
 	{
 		SFWindowManager::sInstance->draw(s);
@@ -237,7 +238,7 @@ void SFRenderManager::Render()
 {
 
 	// Clear the back buffer
-	SFWindowManager::sInstance->clear(sf::Color::Black);
+	SFWindowManager::sInstance->clear(sf::Color::White);
 
 	// The game has started.
 	if (mComponents.size() > 0)

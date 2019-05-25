@@ -22,7 +22,9 @@ mDispatchedPacketCount( 0 )
 DeliveryNotificationManager::~DeliveryNotificationManager()
 {
 	LOG( "DNM destructor. Delivery rate %d%%, Drop rate %d%%",
-		( 100 * mDeliveredPacketCount ) / mDispatchedPacketCount,
+		( 
+			
+			00 * mDeliveredPacketCount ) / mDispatchedPacketCount,
 		( 100 * mDroppedPacketCount ) / mDispatchedPacketCount );
 }
 

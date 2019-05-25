@@ -21,10 +21,6 @@ sf::Sprite & SFHealthSpriteComponent::GetSprite()
 
 std::string SFHealthSpriteComponent::GetCorrectTexture(int health)
 {
-	if (health > 20)
-		return "armor10";
-	else if (health > 10)
-		return "armor" + std::to_string(health - 10);
-	else
+
 		return "health" + std::to_string(health);
 }
