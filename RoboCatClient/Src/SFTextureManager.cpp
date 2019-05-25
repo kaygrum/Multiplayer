@@ -31,28 +31,28 @@ SFTextureManager::SFTextureManager()
 	CacheTexture("woman", "../Assets/woman.png");
 	CacheTexture("zombie", "../Assets/zombie.png");
 
-	// Healthbar frames.
-	CacheTexture("health10", "../Assets/healthbar/health10.png");
-	CacheTexture("health9", "../Assets/healthbar/health9.png");
-	CacheTexture("health8", "../Assets/healthbar/health8.png");
-	CacheTexture("health7", "../Assets/healthbar/health7.png");
-	CacheTexture("health6", "../Assets/healthbar/health6.png");
-	CacheTexture("health5", "../Assets/healthbar/health5.png");
-	CacheTexture("health4", "../Assets/healthbar/health4.png");
-	CacheTexture("health3", "../Assets/healthbar/health3.png");
-	CacheTexture("health2", "../Assets/healthbar/health2.png");
-	CacheTexture("health1", "../Assets/healthbar/health1.png");
-	CacheTexture("health0", "../Assets/healthbar/health0.png");
-	CacheTexture("armor10", "../Assets/healthbar/armor10.png");
-	CacheTexture("armor9", "../Assets/healthbar/armor9.png");
-	CacheTexture("armor8", "../Assets/healthbar/armor8.png");
-	CacheTexture("armor7", "../Assets/healthbar/armor7.png");
-	CacheTexture("armor6", "../Assets/healthbar/armor6.png");
-	CacheTexture("armor5", "../Assets/healthbar/armor5.png");
-	CacheTexture("armor4", "../Assets/healthbar/armor4.png");
-	CacheTexture("armor3", "../Assets/healthbar/armor3.png");
-	CacheTexture("armor2", "../Assets/healthbar/armor2.png");
-	CacheTexture("armor1", "../Assets/healthbar/armor1.png");
+	// Trashbar frames.
+	CacheTexture("Trash10", "../Assets/Trashbar/health10.png");
+	CacheTexture("Trash9", "../Assets/Trashbar/health9.png");
+	CacheTexture("Trash8", "../Assets/Trashbar/health8.png");
+	CacheTexture("Trash7", "../Assets/Trashbar/health7.png");
+	CacheTexture("Trash6", "../Assets/Trashbar/health6.png");
+	CacheTexture("Trash5", "../Assets/Trashbar/health5.png");
+	CacheTexture("Trash4", "../Assets/Trashbar/health4.png");
+	CacheTexture("Trash3", "../Assets/Trashbar/health3.png");
+	CacheTexture("Trash2", "../Assets/Trashbar/health2.png");
+	CacheTexture("Trash1", "../Assets/Trashbar/health1.png");
+	CacheTexture("Trash0", "../Assets/Trashbar/health0.png");
+	CacheTexture("armor10", "../Assets/Trashbar/armor10.png");
+	CacheTexture("armor9", "../Assets/Trashbar/armor9.png");
+	CacheTexture("armor8", "../Assets/Trashbar/armor8.png");
+	CacheTexture("armor7", "../Assets/Trashbar/armor7.png");
+	CacheTexture("armor6", "../Assets/Trashbar/armor6.png");
+	CacheTexture("armor5", "../Assets/Trashbar/armor5.png");
+	CacheTexture("armor4", "../Assets/Trashbar/armor4.png");
+	CacheTexture("armor3", "../Assets/Trashbar/armor3.png");
+	CacheTexture("armor2", "../Assets/Trashbar/armor2.png");
+	CacheTexture("armor1", "../Assets/Trashbar/armor1.png");
 
 }
 

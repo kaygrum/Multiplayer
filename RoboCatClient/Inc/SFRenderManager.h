@@ -27,7 +27,7 @@ private:
 	void UpdateView();
 	void RenderTexturedWorld();
 
-	uint8_t FindCatHealth();
+	uint8_t FindCatTrash();
 	sf::Vector2f NumberofAliveCats();
 
 	//this can't be only place that holds on to component- it has to live inside a GameObject in the world

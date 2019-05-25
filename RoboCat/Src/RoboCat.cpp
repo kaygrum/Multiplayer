@@ -14,7 +14,7 @@ RoboCat::RoboCat() :
 	mThrustDir( sf::Vector2f(0.f, 0.f) ),
 	mPlayerId( 0 ),
 	mIsShooting( false ),
-	mHealth( 0)
+	mTrash( 0)
 {
 	SetCollisionRadius( 20.f );
 }
@@ -275,12 +275,12 @@ uint32_t RoboCat::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirty
 		inOutputStream.Write( (bool)false );
 	}
 
-	if( inDirtyState & ECRS_Health )
+	if( inDirtyState & ECRS_Trash )
 	{
 		inOutputStream.Write( (bool)true );
-		inOutputStream.Write( mHealth, 4 );
+		inOutputStream.Write( mTrash, 4 );
 
-		writtenState |= ECRS_Health;
+		writtenState |= ECRS_Trash;
 	}
 	else
 	{

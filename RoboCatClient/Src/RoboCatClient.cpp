@@ -10,17 +10,17 @@ RoboCatClient::RoboCatClient() :
 	m_sprite.reset(new SFSpriteComponent(this));
 
 	SoundManager::sInstance->PlayMusic();
-	m_healthSprite.reset(new SFHealthSpriteComponent(this));
+	m_TrashSprite.reset(new SFTrashSpriteComponent(this));
 }
 
 void RoboCatClient::HandleDying()
 {
 	RoboCat::HandleDying();
 
-	//and if we're local, tell the hud so our health goes away!
+	//and if we're local, tell the hud so our Trash goes away!
 	if( GetPlayerId() == NetworkManagerClient::sInstance->GetPlayerId() )
 	{
-		HUD::sInstance->SetPlayerHealth( 0 );
+		HUD::sInstance->SetPlayerTrash( 0 );
 	}
 }
 
@@ -138,17 +138,17 @@ void RoboCatClient::Read( InputMemoryBitStream& inInputStream )
 	inInputStream.Read( stateBit );
 	if( stateBit )
 	{
-		mHealth = 0;
-		inInputStream.Read( mHealth, 4 );
-		readState |= ECRS_Health;
+		mTrash = 0;
+		inInputStream.Read( mTrash, 4 );
+		readState |= ECRS_Trash;
 	}
 
 	if( GetPlayerId() == NetworkManagerClient::sInstance->GetPlayerId() )
 	{
-		//did we get health? if so, tell the hud!
-		if( ( readState & ECRS_Health ) != 0 )
+		//did we get Trash? if so, tell the hud!
+		if( ( readState & ECRS_Trash ) != 0 )
 		{
-			HUD::sInstance->SetPlayerHealth( mHealth );
+			HUD::sInstance->SetPlayerTrash( mTrash );
 		}
 
 		DoClientSidePredictionAfterReplicationForLocalCat( readState );

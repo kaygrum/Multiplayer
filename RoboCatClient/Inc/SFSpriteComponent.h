@@ -21,15 +21,15 @@ protected:
 	GameObject* mGameObject;
 };
 
-class SFHealthSpriteComponent : public SFSpriteComponent
+class SFTrashSpriteComponent : public SFSpriteComponent
 {
 public:
-	SFHealthSpriteComponent(GameObject* inGameObject);
+	SFTrashSpriteComponent(GameObject* inGameObject);
 	sf::Sprite& GetSprite();
 
 private:
-	std::string GetCorrectTexture(int health);
+	std::string GetCorrectTexture(int Trash);
 };
 
 typedef shared_ptr< SFSpriteComponent >	SFSpriteComponentPtr;
-typedef shared_ptr< SFHealthSpriteComponent >	SFHealthSpriteComponentPtr;
+typedef shared_ptr< SFTrashSpriteComponent >	SFTrashSpriteComponentPtr;

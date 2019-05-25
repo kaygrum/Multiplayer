@@ -76,8 +76,8 @@ void RoboCatServer::HandleShooting()
 
 void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 {
-	mHealth--;
-	if( mHealth >= 0.f )
+	mTrash--;
+	if( mTrash >= 0.f )
 	{
 		//score one for damaging player...
 		ScoreBoardManager::sInstance->IncScore( inDamagingPlayerId, 1 );
@@ -93,6 +93,6 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 		}
 	}
 
-	//tell the world our health dropped
-	NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
+	//tell the world our Trash dropped
+	NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Trash );
 }

@@ -137,7 +137,7 @@ sf::Vector2f SFRenderManager::FindCatCentre()
 	return sf::Vector2f(-1, -1);
 }
 //using ronans code above to get the players details for the HUD
-uint8_t SFRenderManager::FindCatHealth()
+uint8_t SFRenderManager::FindCatTrash()
 {
 	uint32_t catID = (uint32_t)'RCAT';
 	for (auto obj : World::sInstance->GetGameObjects())
@@ -150,7 +150,7 @@ uint8_t SFRenderManager::FindCatHealth()
 			auto ourID = NetworkManagerClient::sInstance->GetPlayerId();
 			if (id == ourID)
 			{
-				return cat->GetHealth();
+				return cat->GetTrash();
 			}
 		}
 	}
@@ -170,7 +170,7 @@ sf::Vector2f SFRenderManager::NumberofAliveCats()
 		{
 			RoboCat *cat = dynamic_cast<RoboCat*>(obj.get());
 			numberOfCats++;
-			if (cat->GetHealth() == 10)
+			if (cat->GetTrash() == 10)
 				aliveCats--;
 		}
 	}
@@ -226,7 +226,7 @@ void SFRenderManager::RenderComponents()
 
 	for (SFSpriteComponent* c : mComponents)
 	{
-		SFHealthSpriteComponent* ptr = dynamic_cast<SFHealthSpriteComponent*>(c);
+		SFTrashSpriteComponent* ptr = dynamic_cast<SFTrashSpriteComponent*>(c);
 		if (ptr)
 			SFWindowManager::sInstance->draw(ptr->GetSprite());
 		else
@@ -256,7 +256,7 @@ void SFRenderManager::Render()
 		// Draw UI elements.
 		SFRenderManager::sInstance->RenderUI();
 
-		if (FindCatHealth() >= 10 )
+		if (FindCatTrash() >= 10 )
 		{
 			// Draw some you are the winner screen.
 			sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
@@ -270,7 +270,7 @@ void SFRenderManager::Render()
 			// We are the last man standing.
 			sf::Vector2f cats = NumberofAliveCats();
 
-			if (cats.x<=0.f && FindCatHealth() ==9)
+			if (cats.x<=0.f && FindCatTrash() ==9)
 			{
 				// Print some you are dead screen
 				sf::Vector2f lost(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);

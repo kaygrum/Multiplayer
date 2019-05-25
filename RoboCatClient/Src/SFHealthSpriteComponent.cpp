@@ -1,11 +1,11 @@
 #include <RoboCatClientPCH.h>
 
-SFHealthSpriteComponent::SFHealthSpriteComponent(GameObject * inGameObject) :
+SFTrashSpriteComponent::SFTrashSpriteComponent(GameObject * inGameObject) :
 	SFSpriteComponent(inGameObject)
 {
 }
 
-sf::Sprite & SFHealthSpriteComponent::GetSprite()
+sf::Sprite & SFTrashSpriteComponent::GetSprite()
 {
 	// Update the sprite based on the game object stuff.
 	auto pos = mGameObject->GetLocation();
@@ -13,14 +13,14 @@ sf::Sprite & SFHealthSpriteComponent::GetSprite()
 	pos.mY -= 15;
 
 	m_sprite.setPosition(pos.mX, pos.mY);
-	int health = mGameObject->GetAsCat()->GetHealth();
-	m_sprite.setTexture(*SFTextureManager::sInstance->GetTexture(GetCorrectTexture(health)));
+	int Trash = mGameObject->GetAsCat()->GetTrash();
+	m_sprite.setTexture(*SFTextureManager::sInstance->GetTexture(GetCorrectTexture(Trash)));
 
 	return m_sprite;
 }
 
-std::string SFHealthSpriteComponent::GetCorrectTexture(int health)
+std::string SFTrashSpriteComponent::GetCorrectTexture(int Trash)
 {
 
-		return "health" + std::to_string(health);
+		return "Trash" + std::to_string(Trash);
 }

@@ -8,8 +8,8 @@ mScoreBoardOrigin( 50.f, 60.f, 0.0f ),
 mBandwidthOrigin( 250.f, 10.f, 0.0f ),
 mRoundTripTimeOrigin( 50.f, 10.f, 0.0f ),
 mScoreOffset( 0.f, 50.f, 0.0f ),
-mHealthOffset( 1000, 10.f, 0.0f ),
-mHealth( 0 )
+mTrashOffset( 1000, 10.f, 0.0f ),
+mTrash( 0 )
 {
 	TTF_Init();
 	mFont = TTF_OpenFont( "../Assets/Carlito-Regular.TTF", 36 );
@@ -30,15 +30,15 @@ void HUD::Render()
 	RenderBandWidth();
 	RenderRoundTripTime();
 	RenderScoreBoard();
-	RenderHealth();
+	RenderTrash();
 }
 
-void HUD::RenderHealth()
+void HUD::RenderTrash()
 {
-	if( mHealth > 0 )
+	if( mTrash > 0 )
 	{
-		string healthString = StringUtils::Sprintf( "Health %d", mHealth );
-		RenderText( healthString, mHealthOffset, Colors::Green );
+		string TrashString = StringUtils::Sprintf( "Trash %d", mTrash );
+		RenderText( TrashString, mTrashOffset, Colors::Green );
 	}
 }
 

@@ -8,9 +8,9 @@ public:
 		ECRS_Pose = 1 << 0,
 		ECRS_Color = 1 << 1,
 		ECRS_PlayerId = 1 << 2,
-		ECRS_Health = 1 << 3,
+		ECRS_Trash = 1 << 3,
 
-		ECRS_AllState = ECRS_Pose | ECRS_Color | ECRS_PlayerId | ECRS_Health
+		ECRS_AllState = ECRS_Pose | ECRS_Color | ECRS_PlayerId | ECRS_Trash
 	};
 
 
@@ -33,7 +33,7 @@ public:
 	void			SetVelocity( const Vector3& inVelocity )	{ mVelocity = inVelocity; }
 	const Vector3&	GetVelocity()						const	{ return mVelocity; }
 
-	uint8_t& GetHealth() { return mHealth; };
+	uint8_t& GetTrash() { return mTrash; };
 
 	virtual uint32_t	Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const override;
 
@@ -67,7 +67,7 @@ protected:
 	float				mLastMoveTimestamp;
 
 	sf::Vector2f		mThrustDir;
-	uint8_t					mHealth;
+	uint8_t					mTrash;
 
 	bool				mIsShooting;
 

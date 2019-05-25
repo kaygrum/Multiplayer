@@ -15,13 +15,13 @@ bool MouseServer::HandleCollisionWithCat( RoboCat* inCat )
 {
 	if (!picked)
 	{
-		if (inCat->GetHealth() <= 15)
-			inCat->GetHealth()++;
+		if (inCat->GetTrash() <= 15)
+			inCat->GetTrash()++;
 		picked = true;
 		
 		// Hacked in here.
-		int ECRS_Health = 1 << 3;
-		NetworkManagerServer::sInstance->SetStateDirty(inCat->GetNetworkId(), ECRS_Health);
+		int ECRS_Trash = 1 << 3;
+		NetworkManagerServer::sInstance->SetStateDirty(inCat->GetNetworkId(), ECRS_Trash);
 	}
 	//kill yourself!
 	SetDoesWantToDie( true );
